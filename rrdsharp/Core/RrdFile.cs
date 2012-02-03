@@ -161,7 +161,7 @@ namespace RrdSharp.Core
 		internal int ReadInt()
 		{
 			int result = fileIn.ReadInt32();
-			fileIn.Read();
+			fileIn.ReadByte();
 			return result;
 		}
 
