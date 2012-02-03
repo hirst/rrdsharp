@@ -84,23 +84,34 @@ namespace RrdSharp.Graph
 		
 			while ( minPoint <= upper && majPoint <= upper )
 			{
+                if (gridStep <= 0d) gridStep = 0.5d;
+                if (labelStep <= 0d) gridStep = 1d;
+                while (gridStep < 0.5)
+                {
+                    gridStep *= 10;
+                }
+                while (labelStep < 1)
+                {
+                    labelStep *= 10;
+                }
+
 				if ( minPoint < majPoint )
 				{
 					markerList.Add( new ValueMarker(minPoint, false) );
-					minPoint = Math.Round( minPoint + gridStep );	
+                    minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);	
 				}
 				else
 				{
 					if ( minPoint == majPoint )	// Special case, but will happen most of the time
 					{
 						markerList.Add( new ValueMarker(majPoint, true) );
-						minPoint = Math.Round( minPoint + gridStep );
-						majPoint = Math.Round( majPoint + labelStep );
+                        minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);
+                        majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
 					}
 					else
 					{
 						markerList.Add( new ValueMarker(majPoint, true) );
-						majPoint = Math.Round( majPoint + labelStep );
+                        majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
 					}
 				}
 			}
@@ -108,13 +119,13 @@ namespace RrdSharp.Graph
 			while ( minPoint <= upper )
 			{
 				markerList.Add( new ValueMarker(minPoint, false) );
-				minPoint = Math.Round( minPoint + gridStep );
+                minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);
 			}
 
 			while ( majPoint <= upper )
 			{
 				markerList.Add( new ValueMarker(majPoint, true) );
-				majPoint = Math.Round( majPoint + labelStep );
+                majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
 			}
 		
 			return (ValueMarker[]) markerList.ToArray(typeof(ValueMarker));
@@ -229,12 +240,12 @@ namespace RrdSharp.Graph
 		
 		private double Round( double val )
 		{
-			return Math.Round( val, 14 );		// Big precision
+            return Math.Round(val, 14, MidpointRounding.AwayFromZero);		// Big precision
 		}
 	
 		private double Round( double val, int numDecs )
 		{
-			return Math.Round( val, numDecs );
+            return Math.Round(val, numDecs, MidpointRounding.AwayFromZero);
 		}
 	}
 

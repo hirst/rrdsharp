@@ -301,7 +301,7 @@ namespace RrdSharp.Core
 					case TOK_CEIL:
 						Push(Math.Ceiling(Pop())); break;
 					case TOK_ROUND:
-						Push(Math.Round(Pop())); break;
+						Push(Math.Round(Pop(), MidpointRounding.AwayFromZero)); break;
 					case TOK_POW:
 						x2 = Pop(); x1 = Pop();	Push(Math.Pow(x1, x2)); break;
 					case TOK_ABS:

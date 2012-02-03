@@ -157,7 +157,7 @@ namespace RrdSharp.Graph
 						break;
 						
 					case TKN_ROUND:
-						Push(Math.Round(Pop()));
+                        Push(Math.Round(Pop(), MidpointRounding.AwayFromZero));
 						break;
 						
 					case TKN_POW:
