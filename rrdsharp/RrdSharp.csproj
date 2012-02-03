@@ -257,7 +257,6 @@
     <Compile Include="Graph\ValueMarker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -98,21 +98,25 @@ namespace RrdSharp.Graph
 				if ( minPoint < majPoint )
 				{
 					markerList.Add( new ValueMarker(minPoint, false) );
-                    minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);	
-				}
+//                  minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);
+                    minPoint = minPoint + gridStep;
+                }
 				else
 				{
 					if ( minPoint == majPoint )	// Special case, but will happen most of the time
 					{
 						markerList.Add( new ValueMarker(majPoint, true) );
-                        minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);
-                        majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
-					}
+//                      minPoint = Math.Round(minPoint + gridStep, MidpointRounding.AwayFromZero);
+//                      majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
+                        minPoint = minPoint + gridStep;
+                        majPoint = majPoint + labelStep;
+                    }
 					else
 					{
 						markerList.Add( new ValueMarker(majPoint, true) );
-                        majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
-					}
+//                      majPoint = Math.Round(majPoint + labelStep, MidpointRounding.AwayFromZero);
+                        majPoint = majPoint + labelStep;
+                    }
 				}
 			}
 
