@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61B3CAC6-F284-4DE4-A307-F58A5D3B51E7}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>RrdSharp</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RrdSharp</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>RrdSharp.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>RrdSharp.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ArcDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Archive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ArcState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Datasource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\DsDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\FetchData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\FetchPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\FetchRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Header.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IRrdUpdatable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Robin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RpnCalculator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdDb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdDouble.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdDoubleArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdInt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdLong.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdPrimative.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\RrdString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Sample.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Area.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Cdef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\ChartGraphics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Comment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\CubicSplineInterpolator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\CustomArea.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\CustomLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Def.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\FetchSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Gprint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Grapher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\GridRange.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\IPlottable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Legend.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\LegendMaker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Line.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\LineInterpolator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Pdef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\PlotDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\RpnCalculator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\RrdGraph.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\RrdGraphDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Source.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Stack.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\TimeAxisLabel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\TimeAxisUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\TimeGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\TimeMarker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\Title.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\ValueAxisUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\ValueExtractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\ValueFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\ValueGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\ValueMarker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

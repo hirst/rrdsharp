@@ -1,0 +1,2003 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RrdSharp</name>
+    </assembly>
+    <members>
+        <member name="M:RrdSharp.Graph.ValueFormatter.GetDecimalFormat(System.Int32)">
+            Retrieves a <code>DecimalFormat</code> string to format the value, based on a given number of decimals that should
+            be used.
+            @param numDec Number of decimals to use in the formatted value.
+            @return DecimalFormat to use for formatting.
+        </member>
+        <member name="P:RrdSharp.Graph.ValueFormatter.FormattedValue">
+            Formats the value with the given options and returns the result as a text string.
+            @return String containing the formatted value.
+        </member>
+        <member name="T:RrdSharp.Core.RrdDb">
+             <summary>
+             Main class used for RRD files manipulation.
+             </summary>
+             <remarks>
+             Use this class to perform update and fetch operations on exisiting RRD files. This class 
+             is also used to create new RRD file from the definition (object of class RrdDef) or 
+             from XML file (dumped content of RRDTool's or JRobin's RRD file).
+            
+             Note that RRDSharp uses binary format different from JRobin and RRDTool's format. You cannot 
+             use this class to manipulate RRD files created with JRobin or RRDTool. However, if you perform 
+             the same sequence of create, update and fetch operations, you will get exactly the same results 
+             from RRDSharp and JRobin or RRDTool. 
+             </remarks>
+        </member>
+        <member name="T:RrdSharp.Core.IRrdUpdatable">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.IRrdUpdatable.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="updater"></param>
+        </member>
+        <member name="P:RrdSharp.Core.IRrdUpdatable.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Core.RrdDb.NO_LOCKS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Core.RrdDb.WAIT_IF_LOCKED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Core.RrdDb.EXCEPTION_IF_LOCKED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.#ctor(RrdSharp.Core.RrdDef)">
+            <summary>
+            
+            </summary>
+            <param name="rrdDef"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.#ctor(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="readOnly"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.GetDatasource(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dsIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.GetArchive(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="arcIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.CreateSample(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.CreateSample">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.CreateFetchRequest(System.String,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="consolFun"></param>
+            <param name="fetchStart"></param>
+            <param name="fetchEnd"></param>
+            <param name="resolution"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.CreateFetchRequest(System.String,System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="consolFun"></param>
+            <param name="fetchStart"></param>
+            <param name="fetchEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.GetDsIndex(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.GetDatasource(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.GetArcIndex(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="consolFun"></param>
+            <param name="steps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDb.GetArchive(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="consolFun"></param>
+            <param name="steps"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.IsClosed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.Header">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.DsNames">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.Datasources">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.Archives">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.LastUpdateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.RrdDef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.LockMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDb.CanonicalPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.ArcDef">
+            <summary>
+            Class to represent single archive definition within the RRD.
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Core.ArcDef.CONSOL_FUNS">
+            <summary>
+            Valid consolidation function names.
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.ArcDef.#ctor(System.String,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Creates a new Archive Definition object.
+            </summary>
+            <param name="consolFun">Consolidation Function</param>
+            <param name="xff">X-files factor (between 0 and 1)</param>
+            <param name="steps">Number of Archive steps</param>
+            <param name="rows">Number of Archive rows</param>
+        </member>
+        <member name="M:RrdSharp.Core.ArcDef.Dump">
+            <summary>
+            Returns a string representing the Archive Definition (RRDTool format).
+            </summary>
+            <returns>string representation of Archive Definition.</returns>
+        </member>
+        <member name="M:RrdSharp.Core.ArcDef.Equals(System.Object)">
+            <summary>
+            Checks of two Archive Definitions are equal.Archive definitions are considered equal 
+            if they have the same number of steps and the same consolidation function. It is not 
+            possible to create RRD file with two equal archive definitions.
+            </summary>
+            <param name="obj">Archive Definition to compare to.</param>
+            <returns>True if equal, false otherwise.</returns>
+        </member>
+        <member name="M:RrdSharp.Core.ArcDef.IsValidConsolFun(System.String)">
+            <summary>
+            Checks if consolFun represents a valid consolidation function name.
+            </summary>
+            <param name="consolFun">Name of a consolidation function.</param>
+            <returns>True if consolFun is a valid consolidation function name, false otherwise.</returns>
+        </member>
+        <member name="P:RrdSharp.Core.ArcDef.ConsolFun">
+            <summary>
+            Returns consolidation function.
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.ArcDef.Xff">
+            <summary>
+            Returns X-files factor.
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.ArcDef.Steps">
+            <summary>
+            Returns number of Archive steps.
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.ArcDef.Rows">
+            <summary>
+            Returns number of Archive rows.
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Graph.LinearInterpolator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Graph.Plottable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.Plottable.GetValue(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.Plottable.GetValue(System.Int64,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.Plottable.GetValue(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="F:RrdSharp.Graph.LinearInterpolator.INTERPOLATE_LEFT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.LinearInterpolator.INTERPOLATE_RIGHT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.LinearInterpolator.INTERPOLATE_LINEAR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.LinearInterpolator.#ctor(System.Int64[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="timestamps"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.LinearInterpolator.#ctor(System.DateTime[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="dates"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.LinearInterpolator.GetValue(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Graph.LinearInterpolator.InterpolationMethod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.FetchRequest">
+            <summary>
+            Class to represent fetch request.
+            </summary>
+            <remarks>
+            You cannot create FetchRequest directly (no public constructor is provided). 
+            Use createFetchRequest() method of your RrdDb object.
+            </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.FetchRequest.SetFilter(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+        </member>
+        <member name="M:RrdSharp.Core.FetchRequest.SetFilter(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+        </member>
+        <member name="M:RrdSharp.Core.FetchRequest.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchRequest.FetchData">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.FetchRequest.Filter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchRequest.ConsolFun">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchRequest.FetchStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchRequest.FetchEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchRequest.Resolution">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchRequest.ParentDb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.FetchPoint">
+            <summary>
+            Class to represent data source values for the specific timestamp.
+            </summary>
+            <remarks>
+            Objects of this class are created during the fetching process. See fetch()  
+            method of the FetchRequest class.
+            </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.FetchPoint.GetValue(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchPoint.SetValue(System.Int32,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:RrdSharp.Core.FetchPoint.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchPoint.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.FetchPoint.Time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchPoint.Values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchPoint.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.Datasource">
+             <summary>
+             Class to represent single datasource within RRD file.
+             </summary>
+             <remarks>
+             Each datasource object holds the following information: datasource definition (once set, never changed)
+             and datasource state variables (changed whenever RRD file gets updated).
+            
+             Normally, you don't need to manipluate Datasource objects directly, it's up to the RRDSharp framework 
+             to do it for you. 
+            	</remarks>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.#ctor(RrdSharp.Core.RrdDb,RrdSharp.Core.DsDef)">
+            <summary>
+            
+            </summary>
+            <param name="parentDb"></param>
+            <param name="dsDef"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.#ctor(RrdSharp.Core.RrdDb)">
+            <summary>
+            
+            </summary>
+            <param name="parentDb"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.SetMinValue(System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="minValue"></param>
+            <param name="filterArchivedValues"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.SetMaxValue(System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="maxValue"></param>
+            <param name="filterArchivedValues"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Datasource.SetMinMaxValue(System.Double,System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="minValue"></param>
+            <param name="maxValue"></param>
+            <param name="filterArchivedValues"></param>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.DsName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.DsType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.Heartbeat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.MinValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.MaxValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.LastValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.AccumValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.NanSeconds">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Datasource.DsIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Graph.TimeAxisUnit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.SECOND">
+            <summary>
+            Constant for seconds
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.MINUTE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.HOUR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.DAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.WEEK">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.MONTH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.YEAR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.MONDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.TUESDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.WEDNESDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.THURSDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.FRIDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.SATURDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Graph.TimeAxisUnit.SUNDAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.TimeAxisUnit.DateFormat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.Header">
+             <summary>
+             Class to represent RRD file header.
+             </summary>
+             <remarks>
+             Header information is mainly static (once set, it cannot be changed), with the exception of 
+             last update time (this value is changed whenever RRD file gets updated).
+            
+             Normally, you don't need to manipulate the Header object directly - the RRDSharp 
+             framework does it for you.
+             </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.Header.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="P:RrdSharp.Core.Header.Signature">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Header.LastUpdateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Header.Step">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Header.DsCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Header.ArcCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Header.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.FetchData">
+            <summary>
+            Class used to represent data fetched from the RRD file.
+            </summary>
+            <remarks>
+            <para>
+            Object of this class is created when the method fetchData() is called on a FetchRequest object.
+            </para>
+            <para>
+            Data returned from the RRD file is, simply, just one big table filled with timestamps and corresponding 
+            datasource values. Use getRowCount() method to count the number of returned timestamps (table rows).
+            </para>
+            <para>
+            The first table column is filled with timestamps. Time intervals between consecutive timestamps are 
+            guaranteed to be equal. Use getTimestamps() method to get an array of timestamps returned.
+            </para>
+            <para>
+            Remaining columns are filled with datasource values for the whole timestamp range, on a 
+            column-per-datasource basis. Use getColumnCount() to find the number of datasources and getValues(i) 
+            method to obtain all values for the i-th datasource. Returned datasource values correspond to the 
+            values returned with getTimestamps() method.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.GetRow(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="rowIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.GetValues(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dsIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.GetValues(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.GetDsIndex(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.Dump">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.GetAggregate(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <param name="consolFun"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.FetchData.GetAggregate(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <param name="consolFun"></param>
+            <param name="rpnExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.Timestamps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.Values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.RowCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.ColumnCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.FirstTimestamp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.LastTimestamp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.MatchingArchive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.FetchData.DsNames">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.RrdFile">
+            <summary>
+            Class to represent RRD file on the disk.
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.RrdFile.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.RrdFile.Finalize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdFile.FilePath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdFile.FileSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Graph.RrdGraphDef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.#ctor(System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.SetTimePeriod(System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.SetTimePeriod(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.GetBackground">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.GetOverlay">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.SetImageBorder(System.Drawing.Color,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="c"></param>
+            <param name="w"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.SetGridRange(System.Double,System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="lower"></param>
+            <param name="upper"></param>
+            <param name="rigid"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.SetValueAxis(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="gridStep"></param>
+            <param name="labelStep"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.SetTimeAxis(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="minGridTimeUnit"></param>
+            <param name="minGridUnitSteps"></param>
+            <param name="majGridTimeUnit"></param>
+            <param name="majGridUnitSteps"></param>
+            <param name="dateFormat"></param>
+            <param name="centerLabels"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Datasource(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="file"></param>
+            <param name="dsName"></param>
+            <param name="consolFunc"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Datasource(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="rpn"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Datasource(System.String,RrdSharp.Graph.Plottable)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="plottable"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Datasource(System.String,RrdSharp.Graph.Plottable,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="plottable"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Datasource(System.String,RrdSharp.Graph.Plottable,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="plottable"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Line(System.String,System.Drawing.Color,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Line(System.String,System.Drawing.Color,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Line(System.DateTime,System.Double,System.DateTime,System.Double,System.Drawing.Color,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="t1"></param>
+            <param name="v1"></param>
+            <param name="t2"></param>
+            <param name="v2"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Area(System.String,System.Drawing.Color,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Area(System.DateTime,System.Double,System.DateTime,System.Double,System.Drawing.Color,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="t1"></param>
+            <param name="v1"></param>
+            <param name="t2"></param>
+            <param name="v2"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Stack(System.String,System.Drawing.Color,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Hrule(System.Double,System.Drawing.Color,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Hrule(System.Double,System.Drawing.Color,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Vrule(System.DateTime,System.Drawing.Color,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Vrule(System.DateTime,System.Drawing.Color,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <param name="color"></param>
+            <param name="legend"></param>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Comment(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Gprint(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="consolFun"></param>
+            <param name="format"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraphDef.Gprint(System.String,System.String,System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="consolFun"></param>
+            <param name="format"></param>
+            <param name="base1"></param>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.VerticalLabel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.TimeAxisLabel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.BackColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.CanvasColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.TitleFontColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.DefaultFontColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.TitleFont">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.DefaultFont">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.MajorGridColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.MinorGridColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.FrameColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.AxisColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.ArrowColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.MinorGridX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.MinorGridY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.MajorGridX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.MajorGridY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.GridX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.GridY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.FrontGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.ShowLegend">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.ShowSignature">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.AntiAliasing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.ChartLeftPadding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.Background">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.Overlay">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.BaseValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.UnitsExponent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Graph.RrdGraphDef.BorderColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Graph.RrdGraph">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.#ctor(RrdSharp.Graph.RrdGraphDef)">
+            <summary>
+            
+            </summary>
+            <param name="graphDef"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SpecifyImageSize(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="specImgSize"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SetGraphDef(RrdSharp.Graph.RrdGraphDef)">
+            <summary>
+            
+            </summary>
+            <param name="graphDef"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SaveAsPNG(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SaveAsPNG(System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SaveAsGIF(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SaveAsGIF(System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SaveAsJPEG(System.String,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="quality"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.SaveAsJPEG(System.String,System.Int32,System.Int32,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="quality"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.GetPNGBytes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.GetPNGBytes(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.GetJPEGBytes(System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="quality"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.GetJPEGBytes(System.Int32,System.Int32,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="quality"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.GetGIFBytes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.RrdGraph.GetGIFBytes(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RrdSharp.Core.Sample">
+            <summary>
+            Class to represent data source values for the given timestamp. 
+            </summary>
+            <remarks>
+            Objects of this class are never created directly (no public constructor is provided). To learn more 
+            how to update a RRD file, see RRDSharp's Tutorial section.
+            
+            To update a RRD file with RRDSharp use the following procedure:
+            <list type="number">
+            <item><description>Obtain empty Sample object by calling method createSample() on respective RrdDb object.</description></item> 
+            <item><description>Adjust Sample timestamp if necessary (see setTime() method).</description></item>
+            <item><description>Supply data source values (see setValue()).</description></item>
+            <item><description>Call Sample's update() method. </description></item>
+            </list>
+            Newly created Sample object contains all data source values set to 'unknown'. You should specifify 
+            only 'known' data source values. However, if you want to specify 'unknown' values too, use Double.NaN.
+            </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.Sample.SetValue(System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Sample.SetValue(System.Int32,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Sample.Set(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="timeAndValues"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Sample.SetAndUpdate(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="timeAndValues"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Sample.Update">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.Sample.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.Sample.Values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Sample.Time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Sample.DsNames">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Graph.CubicSplineInterpolator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Graph.CubicSplineInterpolator.#ctor(System.Int64[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="timestamps"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.CubicSplineInterpolator.#ctor(System.DateTime[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="dates"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.CubicSplineInterpolator.#ctor(System.Double[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:RrdSharp.Graph.CubicSplineInterpolator.GetValue(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="xval"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Graph.CubicSplineInterpolator.GetValue(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RrdSharp.Core.Util">
+            <summary>
+            Class defines various utility functions used in RRDSharp.
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.Util.Normalize(System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <param name="step"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.Max(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.Min(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.Sum(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.FormatDouble(System.Double,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="nanString"></param>
+            <param name="forceExponents"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.FormatDouble(System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="forceExponents"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.Debug(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Util.GetDate(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.GetTimestamp(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.GetTimestamp(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="min"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.GetTimestamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.TicksToMillis(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="ticks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Util.MillisToTicks(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="millis"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.Util.Time">
+            <summary>
+            Returns Unix time minus milliseconds (why without milliseconds?  who knows.)
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Util.LapTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.Robin">
+             <summary>
+             Class to represent archive values for a single datasource.
+             </summary>
+             <remarks>
+             Robin class is the heart of the so-called "round robin database" concept. Basically, 
+             each Robin object is a fixed length array of double values. Each double value reperesents 
+             consolidated archive value for the specific timestamp. When the underlying array of double 
+             values gets completely filled, new values will replace the oldest entries.
+            
+             A Robin object does not hold values in memory - such object could be quite large. Instead of it,
+              Robin stores all values on the disk and reads them only when necessary. 
+             
+             </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.Robin.GetValue(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Robin.GetValues(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Robin.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="P:RrdSharp.Core.Robin.Values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Robin.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Robin.Parent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Robin.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.ArcState">
+            <summary>
+            Class to represent internal RRD archive state for a single datasource.
+            </summary>
+            <remarks>Objects of this class are never manipulated directly, it's up to the RRDSharp 
+            framework to manage internal arcihve states.
+            </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.ArcState.#ctor(RrdSharp.Core.Archive)">
+            <summary>
+            
+            </summary>
+            <param name="parentArc"></param>
+        </member>
+        <member name="M:RrdSharp.Core.ArcState.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.ArcState.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="P:RrdSharp.Core.ArcState.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.ArcState.NanSteps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.ArcState.AccumValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.ArcState.Parent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.RrdDef">
+             <summary>
+             Class to represent definition of new RRD file.
+             </summary>
+             <remarks>
+             Object of this class is used to create new RRD file from scratch - pass its reference as 
+             an RrdDb constructor argument (see documentation for RrdDb class). RrdDef  object does not 
+             actually create new RRD file. It just holds all necessary information which will be used 
+             during the actual creation process
+            
+             RRD file definition (RrdDef object) consists of the following elements:
+             <list type="bullet">
+             <item><description> path to RRD file that will be created</description></item>
+             <item><description> starting timestamp</description></item>
+             <item><description> step</description></item>
+             <item><description> one or more datasource definitions</description></item>
+             <item><description> one or more archive definitions </description></item>
+             </list>
+             RrdDef provides API to set all these elements.
+             </remarks>
+        </member>
+        <member name="F:RrdSharp.Core.RrdDef.DEFAULT_STEP">
+            <summary>
+            Default RRD step to be used if not specified in constructor (300 seconds)
+            </summary>
+        </member>
+        <member name="F:RrdSharp.Core.RrdDef.DEFAULT_INITIAL_SHIFT">
+            <summary>
+            If not specified in constructor, starting timestamp will be set to the current timestamp 
+            plus DEFAULT_INITIAL_SHIFT seconds (-10) 
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.#ctor(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="step"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.#ctor(System.String,System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="startTime"></param>
+            <param name="step"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.SetStartTime(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="date"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.AddDatasource(RrdSharp.Core.DsDef)">
+            <summary>
+            
+            </summary>
+            <param name="dsDef"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.AddDatasource(System.String,System.String,System.Int64,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <param name="dsType"></param>
+            <param name="heartbeat"></param>
+            <param name="minValue"></param>
+            <param name="maxValue"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.AddDatasource(RrdSharp.Core.DsDef[])">
+            <summary>
+            
+            </summary>
+            <param name="dsDefs"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.AddArchive(RrdSharp.Core.ArcDef)">
+            <summary>
+            
+            </summary>
+            <param name="arcDef"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.AddArchive(RrdSharp.Core.ArcDef[])">
+            <summary>
+            
+            </summary>
+            <param name="arcDefs"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.AddArchive(System.String,System.Double,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="consolFun"></param>
+            <param name="xff"></param>
+            <param name="steps"></param>
+            <param name="rows"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdDef.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.Path">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.StartTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.Step">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.DsDefs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.ArcDefs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.DsCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.RrdDef.ArcCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.Archive">
+             <summary>
+             Class to represent single RRD archive in a RRD file with its internal state. 
+             </summary>
+             <remarks>
+             Normally, you don't need methods to manipulate archive objects directly because the 
+             RRDSharp framework does it automatically for you.
+            
+             Each archive object consists of three parts: an archive definition, archive state objects 
+             (one state object for each datasource,) and round robin archives (one round robin for each 
+             datasource). The API (read-only) is provided to access each of these parts.
+             </remarks>
+        </member>
+        <member name="M:RrdSharp.Core.Archive.#ctor(RrdSharp.Core.RrdDb,RrdSharp.Core.ArcDef)">
+            <summary>
+            
+            </summary>
+            <param name="parentDb"></param>
+            <param name="arcDef"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Archive.#ctor(RrdSharp.Core.RrdDb)">
+            <summary>
+            
+            </summary>
+            <param name="parentDb"></param>
+        </member>
+        <member name="M:RrdSharp.Core.Archive.GetArcState(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dsIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Archive.GetRobin(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dsIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.Archive.CopyStateTo(RrdSharp.Core.IRrdUpdatable)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.ArcStep">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.RrdFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.ConsolFun">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.Xff">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.Steps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.Rows">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.StartTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.Archive.EndTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RrdSharp.Core.RrdException">
+            <summary>
+            Class to represent various RRDSharp checked exceptions
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.RrdException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:RrdSharp.Core.RrdException.#ctor(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:RrdSharp.Core.DsDef">
+            <summary>
+            Class to represent single data source definition within the RRD file.
+            </summary>
+            <remarks>
+            Datasource definition consists of the following five elements:
+            <list type="bullet">
+            <item><description>data source name</description></item>
+            <item><description>data source type</description></item>
+            <item><description>heartbeat</description></item>
+            <item><description>minimal value</description></item>
+            <item><description>maximal value</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:RrdSharp.Core.DsDef.DS_TYPES">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RrdSharp.Core.DsDef.#ctor(System.String,System.String,System.Int64,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="dsName"></param>
+            <param name="dsType"></param>
+            <param name="heartbeat"></param>
+            <param name="minValue"></param>
+            <param name="maxValue"></param>
+        </member>
+        <member name="M:RrdSharp.Core.DsDef.IsValidDsType(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dsType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.DsDef.Dump">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RrdSharp.Core.DsDef.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RrdSharp.Core.DsDef.DsName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.DsDef.DsType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.DsDef.Heartbeat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.DsDef.MinValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdSharp.Core.DsDef.MaxValue">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
